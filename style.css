@@ -11,6 +11,7 @@ html {
 
 body{
     display: flex;
+    overflow: clip;
 }
 
 
@@ -269,7 +270,6 @@ body{
     background-color: rgb(49, 50, 54);
     padding-bottom: 20px;
     overflow-y: auto;
-    overflow-x: clip;
 }
 .navbar{
     display: flex;
