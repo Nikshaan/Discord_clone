@@ -1,0 +1,528 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+html {
+    min-width: 700px;
+    position: relative;
+    }
+
+body{
+    display: flex;
+}
+
+
+.sidebar{
+    background-color: rgb(33, 32, 32);
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width:65px;
+    height: 100vh;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: clip;
+    overflow-x: visible;
+}
+
+::-webkit-scrollbar{
+    width: 5px;
+    background: transparent;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    background-color:transparent;
+  }
+  
+ ::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: rgb(21, 21, 21);
+  }
+.servers{
+    display: flex;
+    flex-direction: column;
+    row-gap: 6px;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.logos:hover{
+    border-radius: 15px;
+    transition-duration: 0.2s;
+}
+
+.logo{
+    border-radius: 10px;
+}
+
+.logos{
+    border-radius: 50%; 
+    padding: 4px 0px;  
+}
+
+.server_options{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content:end;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.options{
+    position: relative;
+    height: 50px;
+    width: 50px;
+    background-color: rgba(93, 93, 93, 0.5);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px ;
+    color:  rgb(2, 172, 2);
+}
+
+.options:hover{
+    background-color: rgb(0, 179, 69);
+    color: white;
+    border-radius: 15px;
+    transition-duration: 0.2s;
+}
+
+.server{
+    position: relative;
+    cursor: pointer;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    margin: 8px 0;
+}
+
+.server_name{
+    position: absolute;
+    left:50%;
+    top: 2%;
+    color: white;
+    transform: translate(-50%);
+    white-space: wrap;
+    background-color: black;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+    border-radius: 10px;
+    padding: 2px 10px;
+    margin-top: 5px;
+    font-size: small;
+    font-weight: 500;
+    z-index: 10;
+}
+
+.server:hover .server_name{
+    left: 100px;
+    visibility: visible;
+    opacity: 1;
+}
+
+.direct-messages{
+    height: 100vh;
+    width: 240px;
+    background-color: rgb(43, 44, 48);
+    overflow-y: auto;
+    overflow-x: clip;
+    padding-bottom: 20px;
+}
+
+.findFriend{
+    background-color: rgb(43, 44, 48);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 1px 1px black;
+    position: fixed;
+    z-index: 9;
+    width: 239px;
+
+}
+.findFriend>input{
+    cursor: pointer;
+    border: 0;
+    width: 90%;
+    height: 25px;
+    margin: 10px;
+    color: white;
+    background-color: black;
+}
+.dm-search::placeholder, .searchbar>textarea{
+    background-color:  rgb(18, 18, 18);
+    color: rgb(169, 169, 169);
+    font-weight: bolder;
+    padding: 5px 10px;
+    font-size: smaller;
+}
+
+.shop{
+    padding-top: 50px;
+    margin: 0 6px;
+}
+.shop_options{
+    display: flex;
+    margin: 5px 0;
+    height: 30px;
+    gap: 15px;
+    padding: 2px 7px;
+    padding-top: 10px;
+    align-items: baseline;
+}
+
+.shop_options>i{
+    color: rgba(174, 174, 174, 0.74);
+    font-size: larger;
+}
+
+.shop_options>p{
+    font-weight: 500;
+    color: rgba(174, 174, 174, 0.74);
+}
+.shop_options:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+
+.shop_options:hover .shophover{
+    color: rgba(255, 255, 255, 0.813);
+}
+
+.dm-heading{
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+    margin: 6px;
+    align-items: center;
+    font-size: 10px;
+    color: rgba(174, 174, 174, 0.74);
+}
+
+.dm-heading:hover{
+    color: rgba(255, 255, 255, 0.813);
+}
+
+.friend{
+    display: flex;
+    justify-content: center;
+    
+}
+.user{
+    padding-top: 5px;
+    margin:10px 7px;
+    border-radius: 5px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+    align-items: center;
+}
+.cancel{
+    opacity: 0;
+    visibility: hidden;
+    font-size: 18px;
+    font-weight: lighter;
+}
+.user:hover .cancel{
+    visibility: visible;
+    opacity: 1;
+    color: rgba(255, 255, 255, 0.5);
+    transition: 0.2s ease-in;
+}
+.user:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+.friendphoto{
+    border-radius: 50%;
+    top:14px;
+    position: relative;
+}
+
+.friendname{
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    left:50px;
+    bottom: 24px;
+    color: rgba(174, 174, 174, 0.74);
+}
+
+.activity{
+    height: 100vh;
+    flex:1;
+    background-color: rgb(49, 50, 54);
+    padding-bottom: 20px;
+    overflow-y: auto;
+    overflow-x: clip;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    height: 45px;
+    box-shadow: 1px 1px 1px black;
+    position: fixed;
+    min-width: 1000px;
+    width: 100%;
+    background-color: rgb(49, 50, 54);
+    z-index: 9;
+}
+.navleft{
+    display: flex;
+    gap: 40px;
+}
+.friendlogo{
+    padding: 5px;
+    margin-left: 15px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+.friendlogo>i{
+    color: rgba(174, 174, 174, 0.74);
+    font-size: x-large;
+}
+.friendlogo>p{
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
+}
+.friendoptions{
+    display: flex;
+    gap:20px;
+    justify-content: space-evenly;
+    align-items: center;
+    color: rgba(174, 174, 174, 0.74);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.friendoptions>p{
+    padding: 2px 10px;
+    border-radius: 5px;
+}
+
+.friendoptions>button{
+    background-color: rgb(4, 116, 0);
+    border: none;
+    padding: 3px 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    margin-right: 40px;
+    white-space: nowrap;
+}
+.friendoptions>p:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.813) ;
+    transition: 0.2s ease-in;
+}
+.navright{
+    top: 10px;
+    right: 0;
+    position:fixed;
+    margin-right: 30px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+    color: rgba(174, 174, 174, 0.74);
+    font-size: x-large;
+}
+.navright>i:hover{
+    color: white;
+    transition-duration: 0.2s;
+}
+.navright>i{
+    position: relative;
+}
+.activity_main{
+    display: flex;
+}
+.onlinefriends{
+    padding-top: 60px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    margin-left: -10px;
+}
+.searchbar{
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    position: relative;
+    margin-left: 20px;
+}
+.searchbar>textarea{
+    height: 30px;
+    width: 100%;
+    border: 0;
+    text-decoration: 0;
+    resize: none;
+    margin-left: 10px;
+}
+.searchbar>textarea::placeholder{
+    font-size: large;
+    font-weight: lighter;
+}
+.searchbar>i{
+    color: rgba(255, 255, 255, 0.717);
+    background-color:  rgb(18, 18, 18);
+    padding: 12px;
+    position: relative;
+}
+.onlinefriends>p{
+    width: 30vh;
+    font-size: 12px;
+    color: rgba(174, 174, 174, 0.74);
+    font-weight: bold;
+    position: relative;
+    top: 20px;
+    left: 30px;
+}
+.users-list{
+    margin-top: 50px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.user-online{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 15px 7px;
+    border-radius: 10px;
+}
+.user-left{
+    display: flex;
+    gap: 10px;
+}
+.username{
+    font-weight: bold;
+    color: white;
+    font-size: 15px;
+}
+.userstatus{
+    color: rgba(174, 174, 174, 0.74);
+    font-weight: 600;
+    font-size: small;
+}
+.user-right{
+    display: flex;
+    gap: 20px;
+    font-size: 22px;
+}
+.user-right>i{
+    color: rgba(174, 174, 174, 0.9);
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 10px 15px;
+    border-radius: 50%;
+}
+.user-right>i:hover{
+    color: white;
+    transition-duration: 0.2s;
+}
+.user-online:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+.onlinestatus{
+    min-width: 350px;
+    width: 30%;
+    margin: 0 15px;
+    padding-top: 60px;
+}
+.onlinestatus>h1{
+    font-weight: bold;
+    color: white;
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.status-list{
+    display: flex;
+    flex-direction: column;
+}
+.single-status{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.status-left{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.status-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.single-status:hover{
+    background-color: rgba(0, 0, 0, 0.6);
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+
+.my-user{
+    position: fixed;
+    display: flex;
+    background-color: rgb(35, 33, 33);
+    width: 220px;
+    height: 50px;
+    bottom: 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+.my-left{
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+}
+.my-right{
+    display: flex;
+    color: rgba(174, 174, 174, 0.74);
+    font-size: 18px;
+}
+.my-right>i{
+    padding: 6px;
+    border-radius: 5px;
+}
+.my-right>i:hover{
+    color: rgba(255, 255, 255, 0.74);
+    background-color: rgba(255, 255, 255, 0.107);
+    transition: 0.2s ease-in;
+}
+
+@media (max-width: 1100px){
+    .navright{
+        position: relative;
+    }
+}
